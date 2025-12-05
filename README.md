@@ -53,21 +53,15 @@ Alles läuft lokal auf meinem Rechner. Ich brauche:
   -p 15672:15672 \
   rabbitmq:3-management
 
-  Optional können Umgebungsvariablen genutzt werden:
-
-    RABBITMQ_QUEUE
-    RABBITMQ_HOST
-    RABBITMQ_PORT
-    RABBITMQ_USER
-    RABBITMQ_PASSWORD
-
-
 4. **Beispiel**
 
-  *Wenn nicht bereits vorhanden:*
+  **Wenn nicht bereits vorhanden: test_data Ordner in root directory erstellen**
+  
   mkdir -p test_data/subdir
   echo "hello" > test_data/file1.txt
   echo "world" > test_data/subdir/file2.txt
+
+  **Den folgenden Skript laufen lassen; die hier angegebenen Parameter dienen nur als Beispiel und können jederzeit angepasst werden — z. B. anderer Queue-Name, anderer RabbitMQ-Server oder eigene Zugangsdaten**
 
   python file_publisher.py test_data \
   --queue files_queue \
