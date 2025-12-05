@@ -30,15 +30,13 @@ Mein Repository besteht aus:
 - `README.md` (diese Datei)
 - `file_publisher.py` (das eigentliche Programm)
 
-Optional kann ich später noch eine Consumer-Datei hinzufügen, ist aber für den Test über die RabbitMQ-Oberfläche nicht zwingend nötig.
-
 ---
 
 ## 3. Voraussetzungen (lokal)
 
 Alles läuft lokal auf meinem Rechner. Ich brauche:
 
-1. **Python 3.8, Docker, +**
+1. **Python 3.8 u. Docker, +**
 
    Prüfung:
    ```bash
