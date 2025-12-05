@@ -44,48 +44,49 @@ Alles läuft lokal auf meinem Rechner. Ich brauche:
    docker --version
 
 2. **Pika**
+
    pip install pika
 
-3. **Rabbit MQ Starten**
+4. **Rabbit MQ Starten**
 
-  docker run -d --name some-rabbit \
-  -p 5672:5672 \
-  -p 15672:15672 \
-  rabbitmq:3-management
+    docker run -d --name some-rabbit \
+    -p 5672:5672 \
+    -p 15672:15672 \
+    rabbitmq:3-management
 
-4. **Beispiel**
+5. **Beispiel**
 
-  **Wenn nicht bereits vorhanden: test_data Ordner in root directory erstellen**
+    **Wenn nicht bereits vorhanden: test_data Ordner in root directory erstellen**
+    
+    mkdir -p test_data/subdir
+    echo "hello" > test_data/file1.txt
+    echo "world" > test_data/subdir/file2.txt
   
-  mkdir -p test_data/subdir
-  echo "hello" > test_data/file1.txt
-  echo "world" > test_data/subdir/file2.txt
+    **Den folgenden Skript laufen lassen; die hier angegebenen Parameter dienen nur als Beispiel und können jederzeit angepasst werden — z. B. anderer Queue-Name, anderer RabbitMQ-Server oder eigene Zugangsdaten**
+  
+    python file_publisher.py test_data \
+    --queue files_queue \
+    --host localhost \
+    --port 5672 \
+    --user guest \
+    --password guest
 
-  **Den folgenden Skript laufen lassen; die hier angegebenen Parameter dienen nur als Beispiel und können jederzeit angepasst werden — z. B. anderer Queue-Name, anderer RabbitMQ-Server oder eigene Zugangsdaten**
+6. **Gesendete Nachrichten Überprüfen**
 
-  python file_publisher.py test_data \
-  --queue files_queue \
-  --host localhost \
-  --port 5672 \
-  --user guest \
-  --password guest
+    i) Browser öffnen → http://localhost:15672
 
-5. **Gesendete Nachrichten Überprüfen**
+    ii) Einloggen → guest / guest
 
-  1. Browser öffnen → http://localhost:15672
+    iii) Queues → meine Queue auswählen (z. B. files_queue)
 
-  2. Einloggen → guest / guest
+    iv) Nachrichtenanzahl ansehen
 
-  3. Queues → meine Queue auswählen (z. B. files_queue)
-
-  4. Nachrichtenanzahl ansehen
-
-  5. Mit Get Message(s) JSON-Payload anzeigen
+    v) Mit Get Message(s) JSON-Payload anzeigen
 
 6. **RabbitMQ Stoppen**
 
-  docker stop some-rabbit
-  docker rm some-rabbit
+    docker stop some-rabbit
+    docker rm some-rabbit
 
 
 
