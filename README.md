@@ -58,8 +58,8 @@ Alles läuft lokal auf meinem Rechner. Ich brauche:
 
     **Wenn nicht bereits vorhanden: test_data Ordner in root directory erstellen**
     
-    mkdir -p test_data/subdir
-    echo "hello" > test_data/file1.txt
+    mkdir -p test_data/subdir \
+    echo "hello" > test_data/file1.txt \
     echo "world" > test_data/subdir/file2.txt
   
     **Den folgenden Skript laufen lassen; die hier angegebenen Parameter dienen nur als Beispiel und können jederzeit angepasst werden — z. B. anderer Queue-Name, anderer RabbitMQ-Server oder eigene Zugangsdaten**
